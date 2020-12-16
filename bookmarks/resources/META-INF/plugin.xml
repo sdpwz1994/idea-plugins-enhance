@@ -1,0 +1,46 @@
+<idea-plugin>
+  <id>com.github.sdpwz1994.enhance.bookmarks</id>
+  <name>bookmarks-enhance</name>
+  <version>1.0</version>
+    <vendor email="sdpwz1994@163.com" url="">private</vendor>
+
+  <description>
+      1. idea function (code tag tab)
+      https://jetbrains.org/intellij/sdk/docs/basics/types_of_plugins.html
+      might involved type:
+      Tool Integration
+      - Implementation of additional actions
+      1.1 fast put tag
+
+      1.2 archive current tags
+
+      1.3 modify archives
+
+      1.4 toggle to any archive
+  </description>
+
+  <change-notes>
+      1. 20201216---init 功能测试
+  </change-notes>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="173.0"/>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products
+  <depends>com.intellij.modules.lang</depends>
+  -->
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+  </extensions>
+
+  <actions>
+    <!-- Add your actions here -->
+      <action id="MoveToNewGroup" class="com.github.sdpwz1994.bookmark.BookmarkGroupMoveEnhance" text="MoveToNewGroup">
+          <add-to-group group-id="FavoritesViewPopupMenu" anchor="after" relative-to-action="NewGroup"/>
+      </action>
+  </actions>
+
+</idea-plugin>
