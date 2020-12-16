@@ -1,2 +1,2 @@
-# idea-bookmark-enhance
-idea书签功能增强
+# idea-plugins-enhance
+idea功能增强
