@@ -1,2 +1,2 @@
 # idea-plugins-enhance
-idea功能增强
+idea书签功能增强

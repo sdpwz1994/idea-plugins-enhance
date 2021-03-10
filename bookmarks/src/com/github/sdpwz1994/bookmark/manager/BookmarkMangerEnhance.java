@@ -12,10 +12,10 @@ import org.jetbrains.annotations.Nullable;
  * @version 1.0
  * @date 2020/12/16
  */
-@State(
-        name = "BookmarkManager",
-        storages = {@Storage("$WORKSPACE_FILE$")}
-)
+//@State(
+//        name = "BookmarkManager",
+//        storages = {@Storage("$WORKSPACE_FILE$")}
+//)
 public class BookmarkMangerEnhance implements PersistentStateComponent<Element> {
 
 
