@@ -6,7 +6,10 @@ import com.intellij.ide.bookmarks.BookmarkManager;
 import com.intellij.ide.bookmarks.BookmarksFavoriteListProvider;
 import com.intellij.ide.favoritesTreeView.AbstractFavoritesListProvider;
 import com.intellij.ide.favoritesTreeView.FavoritesManager;
+import com.intellij.ide.projectView.PresentationData;
+import com.intellij.ide.util.treeView.AbstractTreeNode;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.ui.ColoredTreeCellRenderer;
 import com.intellij.ui.RowIcon;
 import com.intellij.util.ui.EmptyIcon;
@@ -14,6 +17,9 @@ import com.intellij.util.ui.JBUI;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * @author sundapeng
@@ -60,5 +66,36 @@ public class BookmarksFavoriteListProviderEnhance extends AbstractFavoritesListP
         } else {
             renderer.append(this.getListName(this.myProject));
         }
+        Bookmark test = new Bookmark(this.myProject, myProject.getWorkspaceFile(), 3, "test");
+        AbstractTreeNode<Bookmark> child = new AbstractTreeNode<Bookmark>(this.myProject, test) {
+            @NotNull
+            public Collection<? extends AbstractTreeNode> getChildren() {
+                List var10000 = Collections.emptyList();
+                if (var10000 == null) {
+                    throw new RuntimeException("null children");
+                }
+
+                return var10000;
+            }
+
+            public boolean canNavigate() {
+                return test.canNavigate();
+            }
+
+            public boolean canNavigateToSource() {
+                return test.canNavigateToSource();
+            }
+
+            public void navigate(boolean requestFocus) {
+                test.navigate(requestFocus);
+            }
+
+            protected void update(PresentationData presentation) {
+                presentation.setPresentableText(test.toString());
+                presentation.setIcon(test.getIcon());
+            }
+        };
+        child.setParent(this.myNode);
+        this.myChildren.add(child);
     }
 }
